@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.book-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.book-item {
+  max-width: 25%;
+}
+
+.favorite-button {
+  cursor: pointer;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20%;
+}
