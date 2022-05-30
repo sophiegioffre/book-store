@@ -1,9 +1,9 @@
 # book-store
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Description
 
 An e-commerce app that fetches and renders data from [api.itbook.store](https://api.itbook.store/).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## How to Run
 
