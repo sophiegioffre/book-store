@@ -1,7 +1,19 @@
-# Getting Started with Create React App
+# book-store
 
+## Description
+
+An e-commerce app that fetches and renders data from [api.itbook.store](https://api.itbook.store/).
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to Run
+
+Fork and clone code to your local drive. Use `npm install http-server` , `http-server -c-1` to run in in localhost.
+
+## Roadmap to Furture Improvements
+
+Currently, the app only displays the books' image, title, and price. I will add functionality to add books to a favorites page, add shopping cart functionality, and update the styling. 
+
+# Create-React-App Info
 ## Available Scripts
 
 In the project directory, you can run:
