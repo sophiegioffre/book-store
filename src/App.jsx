@@ -1,12 +1,15 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { BookItem } from './components/BookItem';
+import { Routes, Route } from 'react-router-dom';
+import { Books } from './components/Books';
 import { NavBar } from './components/NavBar';
+import { Cart } from './components/Cart';
 
 function App() {
   //Keep track of state
   const [data, setData] = useState([]);
   const [favoriteBooks, setFavoriteBooks] = useState([]);
+  const [booksInCart, setBooksInCart] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
 
   //Fetch data from public api using url
@@ -22,10 +25,25 @@ function App() {
   }
 
   //onCLick function used to add book to cart in BookItem component
-  const handleAddToCart = (bookPrice) => {
-    setSubtotal(subtotal + Number(bookPrice.substring(1)));
-    console.log('bookPrice:', bookPrice.substring(1));
+  const handleAddToCart = ({bookInfo}) => {
+    setSubtotal(subtotal + Number(bookInfo.price.substring(1)));
+
+    console.log('bookPrice:', bookInfo.price.substring(1));
+
+    let newCart = [...booksInCart];
+    console.log('newCart:', newCart);
+    let isInCart = newCart.find(book => book.isbn13 === bookInfo.isbn13);
+    if (!isInCart) {
+      isInCart = {...bookInfo, quantity: 1};
+      newCart.push(isInCart);
+    } else if (isInCart) {
+      isInCart.quantity++;
+    }
+    
+    setBooksInCart(newCart);
   }
+
+  console.log('>>>>>>>', booksInCart);
 
   
   useEffect(fetchData, [])
@@ -34,11 +52,11 @@ function App() {
     <div className="App">
       <NavBar subtotal={subtotal}/>
       <h1>Book Store</h1>
-      <div className="book-container">
-        {data.map(book => (
-          <BookItem key={book.isbn13} bookInfo={book} handleAddToFavorites={handleAddToFavorites} handleAddToCart={handleAddToCart}/>
-        ))}
-      </div>
+      <Routes>
+        <Route path="/" element={<Books books={data} handleAddToFavorites={handleAddToFavorites} handleAddToCart={handleAddToCart} />} />
+        <Route path='/cart' element={<Cart subtotal={subtotal} booksInCart={booksInCart} />} />
+      </Routes>
+
     </div>
   );
 }
