@@ -2,28 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-
 .book-container {
   display: flex;
   flex-direction: row;
@@ -31,7 +9,8 @@
 }
 
 .book-item {
-  max-width: 25%;
+  width: 30%;
+  margin: 8px;
 }
 
 .favorite-button {
@@ -41,19 +20,15 @@
 .cart-total {
   display: flex;
   justify-content: flex-end;
-  margin-right: 20%;
+  margin-right: 32px;
 }
 
 .routes {
   display: flex;
   justify-content: flex-start;
-  margin-left: 10%;
+  margin-left: 32px;
 }
 
-h2 {
+h3 {
   padding: 0 4px;
-}
-
-.cart-link {
-  text-align: end;
 }

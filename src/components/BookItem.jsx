@@ -1,13 +1,12 @@
 import { useState } from "react"
 
 export const BookItem = ({ bookInfo, handleAddToFavorites, handleAddToCart }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
 
-  //handleClick updates the isFavorite status of book upon clicking the heart emoji
+  const [isFavorite, setIsFavorite] = useState(false);
   const handleClick = () => {
     setIsFavorite(!isFavorite);
     console.log(bookInfo);
-    handleAddToFavorites(bookInfo)
+    handleAddToFavorites(bookInfo, isFavorite);
   }
 
   return (
